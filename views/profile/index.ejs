@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/nav.ejs')  %> 
+  <%- include('../partials/html-head.ejs') %>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profiles</title>
+</head>
+<body>
+  <main>
+    <h2>Profile index</h2>
+    <% profiles.forEach(profile => { %>
+      <% if(profile.avatar) { %> 
+      <img class="card-img-top" src="<%= profile.avatar %>" alt="<%= profile.name %>">
+      <% } else {%>
+        <img
+          class="card-img-top"
+          src="/images/icons/user.png"
+          alt="A placeholder avatar"
+          width="50"
+          height="50"
+        />
+      <% } %>
+      <%= profile.name %> <br><br>
+    <% }) %> 
+  </main>
+</body>
+<%- include('../partials/footer') %>
+</html>
