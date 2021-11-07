@@ -4,11 +4,11 @@
   <%- include('../partials/nav.ejs')  %> 
 <body>
   <main>
-    <h2><%= title %> results </h2>
+    <h2><%= title %></h2>
     <% results.response.forEach(player => { %>
       <a href="/players/<%= player.player.id %>">
-      <%= player.player.name %>
-    </a>
+      <%= player.player.name %> 
+      </a>
     <% }) %>
   </main>
 </body>

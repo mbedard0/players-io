@@ -22,7 +22,27 @@ function search(req, res) {
     })
 }
 
-
+function show(req, res) {
+  axios.get(`https://v3.football.api-sports.io/players`,
+    {
+      params: { search: req.params.id, league: 39 },
+      headers: {
+        'x-rapidapi-host': 'v3.football.api-sports.io',
+        'x-rapidapi-key': process.env.API_KEY
+      }
+    })
+    .then(response => {
+      res.render('players/show', {
+        title: `Player details`,
+        results: response.data
+      })
+      console.log(response.data)
+    })
+    .catch(e => {
+      console.log(e)
+    })
+}
 export {
-  search
+  search,
+  show
 }

@@ -4,6 +4,8 @@ const router = Router()
 
 router.post('/search', isLoggedIn, playersCtrl.search)
 
+router.get('/:id', isLoggedIn, playersCtrl.show)
+
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) return next();
   res.redirect("/auth/google");
