@@ -8,6 +8,9 @@
       <a href="/auth/logout">
         <button type="submit">Logout</button>
       </a>
+      <form action="/players/search" method="POST">
+        <input name="search" class="form-control me-2" type="search" placeholder="Search">
+      </form>
     <% } else { %>
       <a href="/auth/google" class="siwg-link">
         <button type="submit" class="siwg">

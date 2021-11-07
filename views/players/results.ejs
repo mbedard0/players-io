@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/html-head.ejs') %>
+  <%- include('../partials/nav.ejs')  %> 
+<body>
+  <main>
+    <h2><%= title %> results </h2>
+    <% results.response.forEach(player => { %>
+      <%= player.player.name %> 
+    <% }) %>
+  </main>
+</body>
+<%- include('../partials/footer.ejs') %>
+</html>
