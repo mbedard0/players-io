@@ -1,13 +1,24 @@
 import { Profile } from '../models/profile.js'
+
 function index(req, res) {
-  Profile.find({}, function(error, profiles) {
-    res.render('profile/index', {
+  Profile.find({})
+  .then(profiles => {
+    res.render('profiles/index', {
       profiles,
-      title: 'View all profiles'
+      title: 'View all profiles',
     })
   })
+  .catch(e =>  {
+    console.log(e)
+  })
+  }
+  
+function show(req, res) {
+
 }
 
+
 export {
-  index
+  index,
+  show
 }
