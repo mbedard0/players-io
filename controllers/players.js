@@ -15,7 +15,7 @@ function search(req, res) {
         title: `Search page`,
         results: response.data
       })
-      console.log(response.data)
+      // console.log(response.data)
     })
     .catch(e => {
       console.log(e)
@@ -25,7 +25,7 @@ function search(req, res) {
 function show(req, res) {
   axios.get(`https://v3.football.api-sports.io/players`,
     {
-      params: { search: req.params.id, league: 39 },
+      params: { id: req.params.id, league: 39, season: 2021 },
       headers: {
         'x-rapidapi-host': 'v3.football.api-sports.io',
         'x-rapidapi-key': process.env.API_KEY

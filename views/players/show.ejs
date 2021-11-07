@@ -6,9 +6,16 @@
   <main>
     <h2><%= title %></h2>
     <% results.response.forEach(player => { %>
-      <a href="/players/<%= player.player.id %>">
-      <%= player.player.name %> 
-      </a>
+      <h1><%= player.player.firstname %> <%= player.player.lastname %></h1><br>
+      <% if (player.player.photo) { %> 
+        <img src="https://media.api-sports.io/football/players/<%= player.player.id %>.png">
+      <% } else { %>
+        <p>no image provided</p>
+      <% } %> 
+      <%= player.player.nationality %>
+      <% player.statistics.forEach(stat => { %>
+        <%= stat.team.name %> 
+      <% }); %> 
     <% }) %>
   </main>
 </body>
