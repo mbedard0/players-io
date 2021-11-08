@@ -19,9 +19,15 @@
     <div>
       <% // if(!userHasPlayer) { %>
         <form action="/players/<%= player.player.id %>/addPlayer?_method=PATCH" method="POST">
-          <input type="text" name="name" hidden value="<%= player.name %>">
-          <input type="text" name="apiId" hidden value="<%= player.id %>">
-          
+          <input type="text" name="name" hidden value="<%= player.player.name %>">
+          <input type="number" name="apiId" hidden value="<%= player.player.id %>">
+          <% player.statistics.forEach(stat => { %>
+            <input type="number" name="gamesPlayed" hidden value="<%= stat.games.appearences %>">
+            <input type="number" name="goals" hidden value="<%= stat.goals.total %>">
+            <input type="number" name="passes" hidden value="<%= stat.passes.total %>">
+            <input type="number" name="yellowCards" hidden value="<%= stat.cards.yellow %>">
+            <input type="number" name="redCards" hidden value="<%= stat.cards.red %>">
+            <% }); %>     
           <button>Add player to your list</button>      
         </form>
       <% // } %> 

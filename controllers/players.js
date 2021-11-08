@@ -44,42 +44,41 @@ function show(req, res) {
 }
 
 function add(req, res) {
-  console.log(req.body.apiId)
-  // find the player by the id which is: req.body.apiId
-  Player.findOne({playerId: req.body.apiId}) 
-  .then(player => {
-    if (player) { // not currently hitting this branch at all
-      // if it does exist, then use the existing player id to push to the profile playerlist
-      Profile.findById(req.user.profile._id, function(error, userProfile) {
-        userProfile.playerList.push(req.body.apiId) //having issues with this line
-        userProfile.playerList.save() 
-      })
-      .catch(e => {
-        console.log(e)
-      })
-    } else {
-      // if the player doesn't exist, create a player with the same id as given through the api
-      Player.create(req.body) // successfully saves player, but needs to have more info
-      .then(player => {
-        Profile.findById(req.user.profile._id, function(error, userProfile) {
-          userProfile.playerList.push(player)
-          userProfile.playerList.save()
-        })
-      })
-        .then(() => {
-        res.redirect(`/players/${req.params.id}`)
-      })
-      .catch(e => {
-        console.log(e)
-      })
-    }
-  // console.log(req.user.profile._id)
-})
+  // find the player by the id which is
+  Player.findOne({ apiId: req.body.apiId })
+    .then(player => {
+      // if it does exist, then use the existing player id to push to the profile playerlist  
+      if (player) {
+        Profile.findById(req.user.profile._id)
+          .then(userProfile => {
+            console.log(userProfile.playerList)
+            userProfile.playerList.push(player._id)
+            userProfile.save()
+          })
+      } else {
+        // if the player doesn't exist, create a player with the same id as given through the api
+        Player.create(req.body)
+          .then(player => {
+            Profile.findById(req.user.profile._id)
+              .then(userProfile => {
+                userProfile.playerList.push(player._id)
+                userProfile.save()
+              })
+          })
+      }
+    })
+    .then(() => {
+      res.redirect(`/players/${req.params.id}`)
+    })
+    .catch(e => {
+      console.log(e)
+    })
 }
 
 
+
 function remove(req, res) {
-  
+
 }
 
 
