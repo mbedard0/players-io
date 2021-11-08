@@ -5,7 +5,7 @@
 <body>
   <main>
     <h2><%= title %></h2>
-    <% results.response.forEach(player => { %>
+    <% results.forEach(player => { %>
       <h1><%= player.player.firstname %> <%= player.player.lastname %></h1><br>
       <% if (player.player.photo) { %> 
         <img src="https://media.api-sports.io/football/players/<%= player.player.id %>.png">
@@ -16,6 +16,16 @@
       <% player.statistics.forEach(stat => { %>
         <%= stat.team.name %> 
       <% }); %> 
+    <div>
+      <% // if(!userHasPlayer) { %>
+        <form action="/players/<%= player.player.id %>/addPlayer?_method=PATCH" method="POST">
+          <input type="text" name="name" hidden value="<%= player.name %>">
+          <input type="text" name="apiId" hidden value="<%= player.id %>">
+          
+          <button>Add player to your list</button>      
+        </form>
+      <% // } %> 
+    </div>
     <% }) %>
   </main>
 </body>

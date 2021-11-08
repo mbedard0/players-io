@@ -19,6 +19,8 @@ passport.use(
           const newProfile = new Profile({
             name: profile.displayName,
             avatar: profile.photos[0].value,
+            playerList: [],
+            boardPosts: []
           })
           const newUser = new User({
             email: profile.emails[0].value,
@@ -27,7 +29,6 @@ passport.use(
           })
           newProfile.save(function (err) {
             if (err) return done(err)
-          })
           newUser.save(function (err) {
             if (err) {
               // Something went wrong while making a user - delete the profile
@@ -37,6 +38,7 @@ passport.use(
             }
             return done(null, newUser)
           })
+        })
         }
       })
     }

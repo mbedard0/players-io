@@ -6,11 +6,14 @@ router.post('/search', isLoggedIn, playersCtrl.search)
 
 router.get('/:id', isLoggedIn, playersCtrl.show)
 
+router.patch('/:id/addPlayer', isLoggedIn, playersCtrl.add)
+
+// router.patch('/:id/addRemove', isLoggedIn, playersCtrl.remove)
+
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) return next();
   res.redirect("/auth/google");
 }
-
 
 export {
   router
