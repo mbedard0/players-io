@@ -4,7 +4,7 @@ const Schema = mongoose.Schema
 const playerSchema = new Schema({
   name: String,
   team: String,
-  // {type: Schema.Types.ObjectId, ref: 'Team'},
+  teamId: {type: Schema.Types.ObjectId, ref: 'Team'},
   apiId: Number, // this is given by the API
   // season: {type: Number, default: function() {
   //     let date = new Date()

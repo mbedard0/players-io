@@ -15,6 +15,7 @@ function index(req, res) {
 
 function show(req, res) {
   Profile.findById(req.params.id)
+  .populate('playerList')
   .then((profile) => { //need to run a .populate for players here and combine with ejs for show view
     Profile.findById(req.user.profile)
     .then(userProfile => {

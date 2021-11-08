@@ -24,6 +24,7 @@
           <% player.statistics.forEach(stat => { %>
             <input type="number" name="gamesPlayed" hidden value="<%= stat.games.appearences %>">
             <input type="number" name="goals" hidden value="<%= stat.goals.total %>">
+            <input type="string" name="team" hidden value="<%= stat.team.name %>">
             <input type="number" name="passes" hidden value="<%= stat.passes.total %>">
             <input type="number" name="yellowCards" hidden value="<%= stat.cards.yellow %>">
             <input type="number" name="redCards" hidden value="<%= stat.cards.red %>">
@@ -41,7 +42,7 @@
         <button>Remove player from your list</button>      
       </form>
       <% }) %> 
-      <% }); %>     
+      <% }) %>     
     </div>
   </main>
 </body>
