@@ -15,13 +15,14 @@ function index(req, res) {
 
 function show(req, res) {
   Profile.findById(req.params.id)
-  .then((profile) => {
+  .then((profile) => { //need to run a .populate for players here and combine with ejs for show view
     Profile.findById(req.user.profile)
     .then(userProfile => {
       res.render('profiles/show', {
         profile,
         userProfile,
-        title: `${profile.name}'s profile`
+        title: `${profile.name}'s profile`,
+        // userHasPlayer: response.data.player?.playerList.some(profile => profile._id.equals(req.user.profile._id))
       })
     })
   })

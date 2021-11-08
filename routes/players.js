@@ -8,7 +8,7 @@ router.get('/:id', isLoggedIn, playersCtrl.show)
 
 router.patch('/:id/addPlayer', isLoggedIn, playersCtrl.add)
 
-// router.patch('/:id/addRemove', isLoggedIn, playersCtrl.remove)
+router.patch('/:id/removePlayer', isLoggedIn, playersCtrl.remove)
 
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) return next();

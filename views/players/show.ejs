@@ -30,9 +30,19 @@
             <% }); %>     
           <button>Add player to your list</button>      
         </form>
-      <% // } %> 
+      <% }) %> 
     </div>
-    <% }) %>
+    <% // }) %>
+    <div>
+      <% results.forEach(player => { %>
+      <form action="/players/<%= player.player.id %>/removePlayer?_method=PATCH" method="POST">
+        <% player.statistics.forEach(stat => { %>
+          <input type="number" name="apiId" hidden value="<%= player.player.id %>">
+        <button>Remove player from your list</button>      
+      </form>
+      <% }) %> 
+      <% }); %>     
+    </div>
   </main>
 </body>
 <%- include('../partials/footer.ejs') %>

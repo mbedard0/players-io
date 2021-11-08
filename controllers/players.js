@@ -35,7 +35,6 @@ function show(req, res) {
       res.render('players/show', {
         title: `Player details`,
         results: response.data.response,
-        userHasPlayer: response.data.player?.playerList.some(profile => profile._id.equals(req.user.profile._id))
       })
     })
     .catch(e => {
@@ -51,7 +50,6 @@ function add(req, res) {
       if (player) {
         Profile.findById(req.user.profile._id)
           .then(userProfile => {
-            console.log(userProfile.playerList)
             userProfile.playerList.push(player._id)
             userProfile.save()
           })
@@ -75,10 +73,25 @@ function add(req, res) {
     })
 }
 
-
-
 function remove(req, res) {
-
+  // find user by req.user.profile._id
+  Profile.findById(req.user.profile._id)
+  .then(userProfile => {
+    // find player by id
+    Player.findOne({ apiId: req.body.apiId })
+    .then(player => {
+      // remove player id from user playerList
+      console.log(player)
+      userProfile.playerList.remove(player._id)
+      userProfile.save()
+    })
+    .then(() => {
+      res.redirect(`/players/${req.params.id}`)
+    })
+  })
+  .catch(e => {
+    console.log(e)
+  })
 }
 
 
@@ -86,5 +99,5 @@ export {
   search,
   show,
   add,
-  // remove
+  remove
 }
