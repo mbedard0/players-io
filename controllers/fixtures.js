@@ -1,5 +1,7 @@
 import { Fixture } from "../models/fixture.js";
+import { BoardPost } from "../models/boardpost.js"
 import axios from "axios";
+import { Profile } from "../models/profile.js";
 
 function index(req, res) {
   axios.get(`https://v3.football.api-sports.io/fixtures`,
@@ -31,7 +33,7 @@ function show(req, res) {
       }
     })
     .then(response => {
-      console.log(response.data.response)
+      // console.log(response.data.response)
       res.render('fixtures/show', {
         title: `Fixture Details`,
         results: response.data.response,
@@ -42,7 +44,36 @@ function show(req, res) {
     })
 }
 
+function create(req, res) {
+  // console.log(req.body)
+  // create new board post
+  BoardPost.create(req.body)
+  .then(post => {
+    // find fixture
+    console.log(req.params.id)
+    // Fixture.findById(req.params.id)
+    // .then(fixture => {
+      // find profile of user (user.profile._id)
+      // fixture.boardPosts.push(post._id)
+      // fixture.save()
+      Profile.findById(req.user.profile._id)
+      .then(profile => {
+        // push and save board post id number to profile
+        profile.boardPosts.push(post._id)
+        profile.save()
+        .then(() => {
+          res.redirect(`/fixtures/${req.params.id}`)
+        })
+      // })
+  })
+  .catch(e => {
+    console.log(e)
+  })
+  })
+}
+
 export {
   index,
-  show
+  show,
+  create
 }

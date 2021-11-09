@@ -6,6 +6,8 @@ router.get('/', isLoggedIn, fixturesCtrl.index)
 
 router.get('/:id', isLoggedIn, fixturesCtrl.show)
 
+router.post('/:id/message', isLoggedIn, fixturesCtrl.create)
+
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) return next();
   res.redirect("/auth/google");
