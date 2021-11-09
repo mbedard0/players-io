@@ -7,7 +7,7 @@
     <h1>Teams Index Page</h1>
     <ul>
       <% results.forEach(team => { %>
-      <li><%= team.team.name %></li> 
+      <li><a href="/teams/<%= team.team.id %>"><%= team.team.name %></a></li> 
     <% }) %> 
     </ul>
   </main>
