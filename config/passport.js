@@ -29,6 +29,7 @@ passport.use(
           })
           newProfile.save(function (err) {
             if (err) return done(err)
+          })
           newUser.save(function (err) {
             if (err) {
               // Something went wrong while making a user - delete the profile
@@ -38,7 +39,6 @@ passport.use(
             }
             return done(null, newUser)
           })
-        })
         }
       })
     }

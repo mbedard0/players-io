@@ -1,8 +1,8 @@
-import { Team } from "../models/team.js";
+import { Game } from "../models/fixture.js";
 import axios from "axios";
 
 function index(req, res) {
-  axios.get(`https://v3.football.api-sports.io/teams`,
+  axios.get(`https://v3.football.api-sports.io/fixtures`,
     {
       params: { season: 2021, league: 39 },
       headers: {
@@ -11,8 +11,9 @@ function index(req, res) {
       }
     })
     .then(response => {
-      res.render('teams/index', {
-        title: `View all teams`,
+      console.log(response.data.response)
+      res.render('fixtures/index', {
+        title: `2021-2022 Fixtures`,
         results: response.data.response,
       })
     })
@@ -31,6 +32,7 @@ function show(req, res) {
       }
     })
     .then(response => {
+      console.log(response.data.response)
       res.render('teams/show', {
         title: `Team Details`,
         results: response.data.response,
@@ -43,5 +45,4 @@ function show(req, res) {
 
 export {
   index,
-  show
 }

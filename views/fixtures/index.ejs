@@ -5,6 +5,11 @@
 <body>
   <main>
     <h1>Games</h1>
+    <ul>
+      <% results.forEach(fixture => { %>
+        <li><%= fixture.teams.home.name %> - <%= fixture.teams.away.name %></li>
+      <% }) %> 
+    </ul>
   </main>
 </body>
 <%- include('../partials/footer') %>
