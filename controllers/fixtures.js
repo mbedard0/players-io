@@ -1,4 +1,4 @@
-import { Game } from "../models/fixture.js";
+import { Fixture } from "../models/fixture.js";
 import axios from "axios";
 
 function index(req, res) {
@@ -11,7 +11,6 @@ function index(req, res) {
       }
     })
     .then(response => {
-      console.log(response.data.response)
       res.render('fixtures/index', {
         title: `2021-2022 Fixtures`,
         results: response.data.response,
@@ -23,9 +22,9 @@ function index(req, res) {
 }
 
 function show(req, res) {
-  axios.get(`https://v3.football.api-sports.io/players/squads`,
+  axios.get(`https://v3.football.api-sports.io/fixtures`,
     {
-      params: { team: req.params.id },
+      params: { id: req.params.id },
       headers: {
         'x-rapidapi-host': 'v3.football.api-sports.io',
         'x-rapidapi-key': process.env.API_KEY
@@ -33,8 +32,8 @@ function show(req, res) {
     })
     .then(response => {
       console.log(response.data.response)
-      res.render('teams/show', {
-        title: `Team Details`,
+      res.render('fixtures/show', {
+        title: `Fixture Details`,
         results: response.data.response,
       })
     })
@@ -45,4 +44,5 @@ function show(req, res) {
 
 export {
   index,
+  show
 }

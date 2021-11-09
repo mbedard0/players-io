@@ -1,14 +1,15 @@
 import mongoose from 'mongoose'
 const Schema = mongoose.Schema
 
-const gameSchema = new Schema({
+const fixtureSchema = new Schema({
   date: Date,
+  fixtureId: {type: Number},
   teams: [{type: Schema.Types.ObjectId, ref: 'Team'}],
   boardPosts: [{type: Schema.Types.ObjectId, ref: 'boardPostSchema'}]
 })
 
-const Game = mongoose.model('Game', gameSchema)
+const Fixture = mongoose.model('Fixture', fixtureSchema)
 
 export {
-  Game,
+  Fixture,
 }

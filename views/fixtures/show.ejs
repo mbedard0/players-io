@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/html-head.ejs') %>
+  <%- include('../partials/nav.ejs')  %> 
+<body>
+  <main>
+    <h2><%= title %></h2>
+    <% results.forEach(el => { %>
+      <h3><%= el.teams.home.name %> - <%= el.teams.away.name %></h3>
+      <h4><%= el.fixture.date %> </h4>
+      <% }) %> 
+  </main>
+</body>
+<%- include('../partials/footer.ejs') %>
+</html>
