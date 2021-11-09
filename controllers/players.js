@@ -42,7 +42,7 @@ function show(req, res) {
     })
 }
 
-function add(req, res) {
+function addPlayer(req, res) {
   // find the player by the id which is
   Player.findOne({ apiId: req.body.apiId })
     .then(player => {
@@ -73,7 +73,7 @@ function add(req, res) {
     })
 }
 
-function remove(req, res) {
+function removePlayer(req, res) {
   // find user by req.user.profile._id
   Profile.findById(req.user.profile._id)
   .then(userProfile => {
@@ -98,6 +98,6 @@ function remove(req, res) {
 export {
   search,
   show,
-  add,
-  remove
+  addPlayer,
+  removePlayer
 }

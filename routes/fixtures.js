@@ -6,7 +6,7 @@ router.get('/', isLoggedIn, fixturesCtrl.index)
 
 router.get('/:id', isLoggedIn, fixturesCtrl.show)
 
-router.post('/:id/message', isLoggedIn, fixturesCtrl.create)
+router.post('/:id/message', isLoggedIn, fixturesCtrl.createMessage)
 
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) return next();

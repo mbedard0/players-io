@@ -2,6 +2,7 @@ import { Fixture } from "../models/fixture.js";
 import { BoardPost } from "../models/boardpost.js"
 import axios from "axios";
 import { Profile } from "../models/profile.js";
+import { Player } from "../models/player.js";
 
 function index(req, res) {
   axios.get(`https://v3.football.api-sports.io/fixtures`,
@@ -44,13 +45,11 @@ function show(req, res) {
     })
 }
 
-function create(req, res) {
+function createMessage(req, res) {
   // console.log(req.body)
   // create new board post
   BoardPost.create(req.body)
   .then(post => {
-    // find fixture
-    console.log(req.params.id)
     // Fixture.findById(req.params.id)
     // .then(fixture => {
       // find profile of user (user.profile._id)
@@ -75,5 +74,5 @@ function create(req, res) {
 export {
   index,
   show,
-  create
+  createMessage
 }
