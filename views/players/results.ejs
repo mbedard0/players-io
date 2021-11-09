@@ -7,7 +7,8 @@
     <h2><%= title %> results </h2>
     <% results.response.forEach(player => { %>
       <a href="/players/<%= player.player.id %>">
-      <%= player.player.name %>
+      <%= player.player.firstname %>
+      <%= player.player.lastname %>
     </a>
     <% }) %>
   </main>

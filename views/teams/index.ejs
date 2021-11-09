@@ -5,6 +5,11 @@
 <body>
   <main>
     <h1>Teams Index Page</h1>
+    <ul>
+      <% results.forEach(team => { %>
+      <li><%= team.team.name %></li> 
+    <% }) %> 
+    </ul>
   </main>
 </body>
 <%- include('../partials/footer') %>

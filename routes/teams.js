@@ -1,8 +1,8 @@
 import { Router } from 'express'
-import * as gamesCtrl from "../controllers/games.js"
+import * as teamsCtrl from "../controllers/teams.js"
 const router = Router()
 
-router.get('/', isLoggedIn, gamesCtrl.index)
+router.get('/', isLoggedIn, teamsCtrl.index)
 
 
 function isLoggedIn(req, res, next) {

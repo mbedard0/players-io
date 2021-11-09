@@ -14,7 +14,8 @@
       <% } %> 
       <%= player.player.nationality %>
       <% player.statistics.forEach(stat => { %>
-        <%= stat.team.name %> 
+        Team: <%= stat.team.name %> 
+        Appearances this season: <%= stat.games.appearences %>
       <% }); %> 
     <div>
       <% // if(!userHasPlayer) { %>

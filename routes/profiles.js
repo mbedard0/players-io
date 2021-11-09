@@ -6,10 +6,6 @@ router.get('/', isLoggedIn, profilesCtrl.index)
 
 router.get('/:id', isLoggedIn, profilesCtrl.show)
 
-
-// router.get('/all', isLoggedIn, profilesCtrl.index)
-
-
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) return next();
   res.redirect("/auth/google");
