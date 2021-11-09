@@ -2,7 +2,8 @@ import mongoose from 'mongoose'
 const Schema = mongoose.Schema
 
 const playerSchema = new Schema({
-  name: String,
+  firstName: String,
+  lastName: String,
   team: String,
   teamId: {type: Schema.Types.ObjectId, ref: 'Team'},
   apiId: Number, // this is given by the API

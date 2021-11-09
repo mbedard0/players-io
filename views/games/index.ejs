@@ -4,13 +4,7 @@
   <%- include('../partials/nav.ejs')  %> 
 <body>
   <main>
-    <h2><%= profile.name %>'s Profile </h2>
-    <div>
-      <% profile.playerList.map(player => { %>
-        <%= player.firstName %>
-        <%= player.lastName %> 
-      <% }); %>
-    </div>
+    <h1>Games</h1>
   </main>
 </body>
 <%- include('../partials/footer') %>
