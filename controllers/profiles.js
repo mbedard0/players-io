@@ -16,6 +16,7 @@ function index(req, res) {
 function show(req, res) {
   Profile.findById(req.params.id)
   .populate('playerList')
+  .populate('boardPosts')
   .then((profile) => {
     Profile.findById(req.user.profile)
     .then(userProfile => {

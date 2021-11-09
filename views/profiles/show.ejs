@@ -6,10 +6,17 @@
   <main>
     <h2><%= profile.name %>'s Profile </h2>
     <div>
+      <h2>Player List</h2>
       <% profile.playerList.map(player => { %>
         <%= player.firstName %>
         <%= player.lastName %> 
       <% }); %>
+      <h2>Posts</h2>
+      <ul>
+      <% profile.boardPosts.forEach(post => { %>
+        <li><%= post.content %></li> 
+      <% }) %> 
+      </ul>
     </div>
   </main>
 </body>
