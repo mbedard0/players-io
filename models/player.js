@@ -6,12 +6,7 @@ const playerSchema = new Schema({
   lastName: String,
   team: String,
   teamId: {type: Schema.Types.ObjectId, ref: 'Team'},
-  apiId: Number, // this is given by the API
-  // season: {type: Number, default: function() {
-  //     let date = new Date()
-  //     date.setFullYear(date.getFullYear())
-  //     return date
-  //   }}, // date is required by the API to give stats by season
+  apiId: Number, 
   gamesPlayed: Number,
   goals: Number,
   passes: Number,

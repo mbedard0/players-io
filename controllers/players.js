@@ -32,9 +32,16 @@ function show(req, res) {
       }
     })
     .then(response => {
-      res.render('players/show', {
-        title: `Player details`,
-        results: response.data.response,
+      Profile.findById(req.user.profile._id)
+      .then(profile => {
+        Player.findOne({ apiId: req.params.id})
+        .then(player => {
+          res.render('players/show', {
+            title: `Player details`,
+            results: response.data.response,
+            userHasPlayer: (player === null)? false : profile.playerList.includes(player._id)
+        })
+      })
       })
     })
     .catch(e => {
@@ -81,7 +88,6 @@ function removePlayer(req, res) {
     Player.findOne({ apiId: req.body.apiId })
     .then(player => {
       // remove player id from user playerList
-      console.log(player)
       userProfile.playerList.remove(player._id)
       userProfile.save()
     })

@@ -1,67 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%- include('../partials/html-head.ejs') %>
-  <%- include('../partials/nav.ejs')  %> 
-<body>
-  <main>
-    <h2><%= title %></h2>
-    <% results.forEach(player => { %>
-      <h1><%= player.player.firstname %> <%= player.player.lastname %></h1><br>
-      <table>
-        <thead>
-          <th></th>
-          <th></th>
-        </thead>
-        <tbody>
-          <tr>
-            <th>
-              <% if (player.player.photo) { %> 
-              <div class="avatar">
-                <div class="mb-8 rounded-full w-30 h-30">
-                  <img src="https://media.api-sports.io/football/players/<%= player.player.id %>.png">
-                </div>
-              </div>               
-              <% } else { %>
-                <p>no image provided</p>
-              <% } %>       
-            <td>National team: <%= player.player.nationality %></td>
-            <% player.statistics.forEach(stat => { %>
-            <td>Team: <%= stat.team.name %></td>
-            <td>Appearances this season: <%= stat.games.appearences %></td>
-        </tr>
-        </tbody>
-      </table>
-      <% }); %> 
-    <div>
-      <% // if(!userHasPlayer) { %>
-        <form action="/players/<%= player.player.id %>/addPlayer?_method=PATCH" method="POST">
-          <input type="text" name="firstName" hidden value="<%= player.player.firstname %>">
-          <input type="text" name="lastName" hidden value="<%= player.player.lastname %>">
-          <input type="number" name="apiId" hidden value="<%= player.player.id %>">
-          <% player.statistics.forEach(stat => { %>
-            <input type="number" name="gamesPlayed" hidden value="<%= stat.games.appearences %>">
-            <input type="number" name="goals" hidden value="<%= stat.goals.total %>">
-            <input type="string" name="team" hidden value="<%= stat.team.name %>">
-            <input type="number" name="passes" hidden value="<%= stat.passes.total %>">
-            <input type="number" name="yellowCards" hidden value="<%= stat.cards.yellow %>">
-            <input type="number" name="redCards" hidden value="<%= stat.cards.red %>">
-            <% }); %>     
-          <button>Add player to your list</button>      
-        </form>
-      <% }) %> 
-    </div>
-    <% // }) %>
-    <div>
-      <% results.forEach(player => { %>
-      <form action="/players/<%= player.player.id %>/removePlayer?_method=PATCH" method="POST">
-        <% player.statistics.forEach(stat => { %>
-          <input type="number" name="apiId" hidden value="<%= player.player.id %>">
-        <button>Remove player from your list</button>      
-      </form>
-      <% }) %> 
-      <% }) %>     
-    </div>
-  </main>
-</body>
-<%- include('../partials/footer.ejs') %>
+<%- include('../partials/html-head.ejs') %>
+  <%- include('../partials/nav.ejs') %>
+
+    <body>
+      <main>
+        <h2>
+          <%= title %>
+        </h2>
+        <% results.forEach(player=> { %>
+          <h1>
+            <%= player.player.firstname %>
+              <%= player.player.lastname %>
+          </h1><br>
+          <table>
+            <thead>
+              <th></th>
+              <th></th>
+            </thead>
+            <tbody>
+              <tr>
+                <th>
+                  <% if (player.player.photo) { %>
+                    <div class="avatar">
+                      <div class="mb-8 rounded-full w-30 h-30">
+                        <img src="https://media.api-sports.io/football/players/<%= player.player.id %>.png">
+                      </div>
+                    </div>
+                    <% } else { %>
+                      <p>no image provided</p>
+                      <% } %>
+                <td>National team: <%= player.player.nationality %>
+                </td>
+                <% player.statistics.forEach(stat=> { %>
+                  <td>Team: <%= stat.team.name %>
+                  </td>
+                  <td>Appearances this season: <%= stat.games.appearences %>
+                  </td>
+              </tr>
+            </tbody>
+          </table>
+          <% }); %>
+            <div>
+              <% if(!userHasPlayer) { %>
+                <form action="/players/<%= player.player.id %>/addPlayer?_method=PATCH" method="POST">
+                  <input type="text" name="firstName" hidden value="<%= player.player.firstname %>">
+                  <input type="text" name="lastName" hidden value="<%= player.player.lastname %>">
+                  <input type="number" name="apiId" hidden value="<%= player.player.id %>">
+                  <% player.statistics.forEach(stat=> { %>
+                    <input type="number" name="gamesPlayed" hidden value="<%= stat.games.appearences %>">
+                    <input type="number" name="goals" hidden value="<%= stat.goals.total %>">
+                    <input type="string" name="team" hidden value="<%= stat.team.name %>">
+                    <input type="number" name="passes" hidden value="<%= stat.passes.total %>">
+                    <input type="number" name="yellowCards" hidden value="<%= stat.cards.yellow %>">
+                    <input type="number" name="redCards" hidden value="<%= stat.cards.red %>">
+                    <% }); %>
+                      <button class="btn btn-success">Add player to your list</button>
+                </form>
+                <% } else { %>
+            </div>
+              <div>
+                <% results.forEach(player=> { %>
+                  <form action="/players/<%= player.player.id %>/removePlayer?_method=PATCH" method="POST">
+                    <% player.statistics.forEach(stat=> { %>
+                      <input type="number" name="apiId" hidden value="<%= player.player.id %>">
+                      <button class="btn btn-error">Remove player from your list</button>
+                  </form>
+                  <% }) %>
+                    <% }) %>
+                    <% } %>
+                      <% }) %>
+              </div>
+      </main>
+    </body>
+    <%- include('../partials/footer.ejs') %>
+
 </html>

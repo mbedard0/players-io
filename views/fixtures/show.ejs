@@ -14,11 +14,12 @@
     <label for="content"></label>
     <input name="content" placeholder="Message">
     <input type="number" name="fixtureId" hidden value="<%= el.fixture.id %>">
+    <input name="author" hidden value="<%= user.profile._id %>">
     <button type="submit">Submit</button>
     </form>
     <% }) %>
     <% fixture.boardPosts.forEach(post => {  %>
-      <%= post.content %>
+      <%= post.content %> <%= post.author %> 
     <% }) %> 
   </main>
 </body>

@@ -35,7 +35,7 @@
       <h2>Posts</h2>
       <div class="flex flex-col w-full">
         <% profile.boardPosts.forEach(post => { %>
-        <div class="grid h-20 card bg-base-300 rounded-box place-items-center"><%= post.content %></div> 
+        <div class="grid h-20 card bg-base-300 rounded-box place-items-center"><%= post.content %><br> <%= post.createdAt.toLocaleDateString() %> </div> 
       </div>
       <% }) %> 
     </div>

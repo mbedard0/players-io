@@ -24,7 +24,6 @@ function show(req, res) {
         profile,
         userProfile,
         title: `${profile.name}'s profile`,
-        // userHasPlayer: response.data.player?.playerList.some(profile => profile._id.equals(req.user.profile._id))
       })
     })
   })

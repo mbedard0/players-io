@@ -36,8 +36,8 @@ function show(req, res) {
     .then(response => {
       Fixture.findOne({id: req.params.id})
       .populate('boardPosts')
+      // need to populate boardposts authors... but not directly linking them in here
       .then(fixture => {
-        console.log(fixture)
       res.render('fixtures/show', {
         title: `Fixture Details`,
         fixture,
