@@ -7,16 +7,37 @@
     <h2><%= profile.name %>'s Profile </h2>
     <div>
       <h2>Player List</h2>
-      <% profile.playerList.forEach(player => { %>
-        <%= player.firstName %>
-        <%= player.lastName %> <br>
-      <% }); %>
+      <div class="overflow-x-auto">
+        <table class="table w-full table-compact">
+          <thead>
+            <tr>
+              <th></th> 
+              <th>Name</th> 
+              <th>Team</th> 
+              <th>Goals</th>
+              <th>Passes</th>
+            </tr>
+          </thead>
+          <% profile.playerList.forEach(player => { %>
+          <tbody>
+            <tr>
+              <th>9</th> 
+              <td><%= player.firstName %> <%= player.lastName %></td> 
+              <td><%= player.team %> </td> 
+              <td><%= player.goals %> </td> 
+              <td><%= player.passes %> </td>
+            </tr>
+          </tbody>
+          <% }); %>
+        </table>
+      </div>
+      <div class="divider"></div> 
       <h2>Posts</h2>
-      <ul>
-      <% profile.boardPosts.forEach(post => { %>
-        <li><%= post.content %></li> 
+      <div class="flex flex-col w-full">
+        <% profile.boardPosts.forEach(post => { %>
+        <div class="grid h-20 card bg-base-300 rounded-box place-items-center"><%= post.content %></div> 
+      </div>
       <% }) %> 
-      </ul>
     </div>
   </main>
 </body>

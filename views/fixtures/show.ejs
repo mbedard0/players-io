@@ -11,8 +11,8 @@
     <% }) %>
     <% results.forEach(el => { %>
     <form action="/fixtures/<%= el.fixture.id %>/message" method="POST">
-    <label for="content">Message</label>
-    <input name="content">
+    <label for="content"></label>
+    <input name="content" placeholder="Message">
     <input type="number" name="fixtureId" hidden value="<%= el.fixture.id %>">
     <button type="submit">Submit</button>
     </form>
