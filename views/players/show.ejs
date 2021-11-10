@@ -7,15 +7,30 @@
     <h2><%= title %></h2>
     <% results.forEach(player => { %>
       <h1><%= player.player.firstname %> <%= player.player.lastname %></h1><br>
-      <% if (player.player.photo) { %> 
-        <img src="https://media.api-sports.io/football/players/<%= player.player.id %>.png">
-      <% } else { %>
-        <p>no image provided</p>
-      <% } %> 
-      National team: <%= player.player.nationality %><br>
-      <% player.statistics.forEach(stat => { %>
-        Team: <%= stat.team.name %> 
-        Appearances this season: <%= stat.games.appearences %>
+      <table>
+        <thead>
+          <th></th>
+          <th></th>
+        </thead>
+        <tbody>
+          <tr>
+            <th>
+              <% if (player.player.photo) { %> 
+              <div class="avatar">
+                <div class="mb-8 rounded-full w-30 h-30">
+                  <img src="https://media.api-sports.io/football/players/<%= player.player.id %>.png">
+                </div>
+              </div>               
+              <% } else { %>
+                <p>no image provided</p>
+              <% } %>       
+            <td>National team: <%= player.player.nationality %></td>
+            <% player.statistics.forEach(stat => { %>
+            <td>Team: <%= stat.team.name %></td>
+            <td>Appearances this season: <%= stat.games.appearences %></td>
+        </tr>
+        </tbody>
+      </table>
       <% }); %> 
     <div>
       <% // if(!userHasPlayer) { %>
