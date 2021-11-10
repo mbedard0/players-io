@@ -18,9 +18,14 @@
     <button type="submit">Submit</button>
     </form>
     <% }) %>
-    <% fixture.boardPosts.forEach(post => {  %>
-      <%= post.content %> <%= post.author %> 
-    <% }) %> 
+    <% fixture.forEach(el => {  %>
+    <% if(el.boardPosts.length) { %> 
+      <% el.boardPosts.forEach(post => { %>
+          <%= post.content %>
+          <% }) %> 
+          <% } %> 
+          <% }) %>       
+    <% %> 
   </main>
 </body>
 <%- include('../partials/footer.ejs') %>

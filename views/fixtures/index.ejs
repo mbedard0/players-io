@@ -5,11 +5,12 @@
 <body>
   <main>
     <h1>Games</h1>
-    <ul>
+    <div class="flex flex-col w-full">
       <% results.forEach(fixture => { %>
-        <li><a class="link link-accent" href="/fixtures/<%= fixture.fixture.id %>"><%= fixture.teams.home.name %> - <%= fixture.teams.away.name %></a></li>
+      <div class="grid h-20 card bg-base-300 rounded-box place-items-center"><a class="link link-accent" href="/fixtures/<%= fixture.fixture.id %>"><%= fixture.teams.home.name %> - <%= fixture.teams.away.name %></a></div> 
+      <div class="divider"></div> 
       <% }) %> 
-    </ul>
+    </div>
   </main>
 </body>
 <%- include('../partials/footer') %>

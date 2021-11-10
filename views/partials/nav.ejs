@@ -8,7 +8,7 @@
       <div class="navbar mb-2 shadow-lg bg-neutral text-neutral-content rounded-box">
         <div class="flex-none px-2 mx-2">
           <span class="text-lg font-bold">
-                  players.io
+            <a href="/">players.io</a>
                 </span>
         </div>
         <div class="navbar-start"></div>
@@ -36,25 +36,12 @@
             </div>
           </div>
         </div>
-        <div class="navbar-center"></div>
         <div class="navbar-end">
         <a href="/auth/logout">
           <button type="submit" class="mr-3">Logout</button>
         </a>
       </div>
   </div>
-    <% } else { %>
-      <div class="navbar mb-2 shadow-lg bg-neutral text-neutral-content rounded-box">
-        <div class="navbar-start"></div>
-        <div class="navbar-center">
-          <a href="/auth/google" class="siwg-link">
-            <button type="submit" class="siwg">
-              <img id="siwg-image" alt="Sign in with Google" />
-          </button>
-        </div>
-        </button>
-      </a>
-      <div class="navbar-end"></div>
     </div> 
     <% } %>
   </nav>

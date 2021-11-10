@@ -2,7 +2,25 @@
 <%- include('./partials/nav.ejs') %>
 
 <main>
-  <h1 class="text-white">hello, <%= (user ? user.profile.name : "friend") %></h1>
+  <h1 class="text-white"><% if(user) { %>
+    hello, <%= user.profile.name %></h1>
+  <% } else { %>
+  <div class="hero min-h-screen">
+  <div class="text-center hero-content">
+    <div>
+      <h1 class="mb-5 text-5xl font-bold text-gray">
+            Hello there
+          </h1> 
+      <p class="mb-5 text-lightgray">
+            Welcome to <b class="text-xl">players.io.</b><br>Get started by signing in.
+          </p> 
+          <a href="/auth/google" class="siwg-link">
+            <button type="submit" class="siwg">
+              <img id="siwg-image" alt="Sign in with Google" />
+          </button>    </div>
+  </div>
+</div>
+  <% } %>
   <% if (user?.profile.avatar) { %>
     <div>
       <img 

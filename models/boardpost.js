@@ -4,8 +4,7 @@ const Schema = mongoose.Schema
 const boardPostSchema = new Schema({
   content: {type: String, required: true},
   author: {type: Schema.Types.ObjectId, ref: 'Profile'},
-  fixtureId: [{type: Number}],
-  teams: {type: String}
+  fixtureId: {type: Number},
 }, {
   timestamps: true
 })
