@@ -34,27 +34,40 @@ function show(req, res) {
       }
     })
     .then(response => {
-      // console.log(response.data.response)
+      Fixture.findOne({id: req.params.id})
+      .populate('boardPosts')
+      .then(fixture => {
+        console.log(fixture)
       res.render('fixtures/show', {
         title: `Fixture Details`,
+        fixture,
         results: response.data.response,
       })
     })
     .catch(e => {
       console.log(e)
     })
+  })
 }
 
 function createMessage(req, res) {
-  // console.log(req.body)
+  Fixture.findOne({fixtureId: req.body.fixtureId})
+    .then(fixture => {
+      console.log(fixture)
+      if (fixture) {
+        return
+      } else {
+        Fixture.create(req.body)
+    }
+  })
   // create new board post
   BoardPost.create(req.body)
   .then(post => {
-    // Fixture.findById(req.params.id)
-    // .then(fixture => {
+    Fixture.findOne({fixtureId: req.body.fixtureId})
+    .then(fixture => {
       // find profile of user (user.profile._id)
-      // fixture.boardPosts.push(post._id)
-      // fixture.save()
+      fixture.boardPosts.push(post._id)
+      fixture.save()
       Profile.findById(req.user.profile._id)
       .then(profile => {
         // push and save board post id number to profile
@@ -63,7 +76,7 @@ function createMessage(req, res) {
         .then(() => {
           res.redirect(`/fixtures/${req.params.id}`)
         })
-      // })
+      })
   })
   .catch(e => {
     console.log(e)

@@ -43,7 +43,7 @@ function show(req, res) {
 }
 
 function addPlayer(req, res) {
-  // find the player by the id which is
+  // find the player by the id
   Player.findOne({ apiId: req.body.apiId })
     .then(player => {
       // if it does exist, then use the existing player id to push to the profile playerlist  

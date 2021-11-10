@@ -8,7 +8,7 @@
     <ul>
     <% results.forEach(team => { %>
       <% team.players.forEach(player => { %>
-        <li><a href="/players/<%= player.id %>"><%= player.name %></a></li>
+        <li><a class="link link-accent" href="/players/<%= player.id %>"><%= player.name %></a></li>
       <% }) %> 
     <% })%> 
     </ul>
