@@ -20,5 +20,8 @@
     "nodemon": "^2.0.14",
     "passport": "^0.4.1",
     "passport-google-oauth20": "^2.0.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.0"
   }
 }

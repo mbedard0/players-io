@@ -4,22 +4,53 @@
 </head>
 <body>
   <nav>
-    <% if (user) { %>
-      <a href="/profiles">View profiles</a>
-      <a href="/teams">View all teams</a>
-      <a href="/profiles/<%= user.profile._id %>">My list</a>
-      <a href="/fixtures">2021-2022 Fixtures</a>
-      <form action="/players/search" method="POST">
-        <input name="search" class="form-control me-2" type="search" placeholder="Search">
-      </form>
-      <a href="/auth/logout">
-        <button type="submit">Logout</button>
-      </a>
+    <% if (user) { %> 
+      <div class="navbar mb-2 shadow-lg bg-neutral text-neutral-content rounded-box">
+        <div class="flex-none px-2 mx-2">
+          <span class="text-lg font-bold">
+                  players.io
+                </span>
+        </div>
+        <div class="navbar-start"></div>
+        <div class="flex-1 px-2 mx-2">
+          <div class="items-stretch hidden lg:flex">
+            <a class="navbar-center btn btn-ghost btn-sm rounded-btn" href="/profiles">
+              View profiles
+                  </a> 
+            <a class="navbar-center btn btn-ghost btn-sm rounded-btn" href="/teams">
+                    Teams
+                  </a> 
+            <a class="navbar-center btn btn-ghost btn-sm rounded-btn" href="/profiles/<%= user.profile._id %>">
+                    My List
+                  </a> 
+            <a class="navbar-center btn btn-ghost btn-sm rounded-btn" href="/fixtures">
+                    2021-2022 Fixtures
+                  </a>
+            <div class="navbar-center flex mt-1">
+              <form action="/players/search" method="POST">
+                <input name="search" class="form-control me-2 rounded-lg" type="search" placeholder="Search">
+              </form>          
+            </div>
+          </div>
+        </div> 
+        <div class="navbar-end">
+        <a href="/auth/logout">
+          <button type="submit" class="mr-3">Logout</button>
+        </a>
+      </div>
+  </div>
     <% } else { %>
-      <a href="/auth/google" class="siwg-link">
-        <button type="submit" class="siwg">
-          <img id="siwg-image" alt="Sign in with Google" />
+      <div class="navbar mb-2 shadow-lg bg-neutral text-neutral-content rounded-box">
+        <div class="navbar-start"></div>
+        <div class="navbar-center">
+          <a href="/auth/google" class="siwg-link">
+            <button type="submit" class="siwg">
+              <img id="siwg-image" alt="Sign in with Google" />
+          </button>
+        </div>
         </button>
       </a>
+      <div class="navbar-end"></div>
+    </div> 
     <% } %>
   </nav>
