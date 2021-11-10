@@ -21,7 +21,7 @@
       <% // if(!userHasPlayer) { %>
         <form action="/players/<%= player.player.id %>/addPlayer?_method=PATCH" method="POST">
           <input type="text" name="firstName" hidden value="<%= player.player.firstname %>">
-          <input type="text" name="LastName" hidden value="<%= player.player.lastname %>">
+          <input type="text" name="lastName" hidden value="<%= player.player.lastname %>">
           <input type="number" name="apiId" hidden value="<%= player.player.id %>">
           <% player.statistics.forEach(stat => { %>
             <input type="number" name="gamesPlayed" hidden value="<%= stat.games.appearences %>">
