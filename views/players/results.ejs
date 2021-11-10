@@ -5,11 +5,20 @@
 <body>
   <main>
     <h2><%= title %> results </h2>
+
     <% results.response.forEach(player => { %>
-      <a href="/players/<%= player.player.id %>">
-      <%= player.player.firstname %>
-      <%= player.player.lastname %>
-    </a>
+    <div class="card lg:card-side bordered">
+      <figure>
+        <img src="https://media.api-sports.io/football/players/<%= player.player.id %>.png">
+      </figure> 
+      <div class="card-body">
+        <h2 class="card-title -mt-4"><%= player.player.firstname %>
+          <%= player.player.lastname %></h2> 
+          <div class="card-actions">
+          <button class="btn btn-xs md:btn-sm lg:btn-md xl:btn-lg"><a href="/players/<%= player.player.id %>">More info<a></button>
+        </div>
+      </div>
+    </div> 
     <% }) %>
   </main>
 </body>

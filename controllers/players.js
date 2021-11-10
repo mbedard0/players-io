@@ -13,7 +13,7 @@ function search(req, res) {
     })
     .then(response => {
       res.render('players/results', {
-        title: `Search page`,
+        title: `Search`,
         results: response.data
       })
     })

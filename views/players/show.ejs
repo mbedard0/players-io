@@ -12,7 +12,7 @@
       <% } else { %>
         <p>no image provided</p>
       <% } %> 
-      <%= player.player.nationality %>
+      National team: <%= player.player.nationality %><br>
       <% player.statistics.forEach(stat => { %>
         Team: <%= stat.team.name %> 
         Appearances this season: <%= stat.games.appearences %>

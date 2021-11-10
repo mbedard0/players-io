@@ -4,13 +4,25 @@
   <%- include('../partials/nav.ejs')  %> 
 <body>
   <main>
-    <h1>Teams Index Page</h1>
-    
-    <ul>
-      <% results.forEach(team => { %>
-      <li><a href="/teams/<%= team.team.id %>"><%= team.team.name %></a></li> 
-    <% }) %> 
-    </ul>
+    <div class="overflow-x-auto">
+      <table class="table w-full">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Team</th> 
+            <th></th>
+          </tr>
+        </thead>
+        <% results.forEach(team => { %>
+        <tbody>
+          <tr>
+            <th><img class="transform scale-50" src="https://media.api-sports.io/football/teams/<%= team.team.id %>.png"></th>
+            <td><a href="/teams/<%= team.team.id %>"><%= team.team.name %></a></td> 
+            <% }) %> 
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </main>
 </body>
 <%- include('../partials/footer') %>
