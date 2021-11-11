@@ -17,16 +17,22 @@
               <th>Team</th> 
               <th>Goals</th>
               <th>Passes</th>
+              <th>Key Passes</th>
+              <th>Yellow Cards</th>
+              <th>Red Cards</th>
             </tr>
           </thead>
           <% profile.playerList.forEach(player => { %>
-          <tbody>
+            <tbody>
             <tr>
-              <th></th> 
-              <td><a class="link" href="/players/<%= player.apiId %> "><%= player.firstName %> <%= player.lastName %></a></td> 
+              <th></th>
+              <td><a class="link" href="/players/<%= player.apiId %> "><%= player.firstName %> <%= player.lastName %></a></td>
               <td><%= player.team %> </td> 
               <td><%= player.goals %> </td> 
               <td><%= player.passes %> </td>
+              <td><%= player.keyPasses %> </td>
+              <td><%= player.yellowCards %> </td>
+              <td><%= player.redCards %> </td>
             </tr>
           </tbody>
           <% }); %>

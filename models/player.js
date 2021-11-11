@@ -10,6 +10,8 @@ const playerSchema = new Schema({
   gamesPlayed: Number,
   goals: Number,
   passes: Number,
+  keyPasses: Number,
+  saves: Number,
   yellowCards: Number,
   redCards: Number
 }, {

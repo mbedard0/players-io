@@ -2,7 +2,6 @@ import { Fixture } from "../models/fixture.js";
 import { BoardPost } from "../models/boardpost.js"
 import axios from "axios";
 import { Profile } from "../models/profile.js";
-import { Player } from "../models/player.js";
 
 function index(req, res) {
   axios.get(`https://v3.football.api-sports.io/fixtures`,
@@ -37,10 +36,14 @@ function show(req, res) {
       Fixture.find({fixtureId: req.params.id})
       .populate('boardPosts')
       .then(fixture => {
-        console.log(fixture)
+        let utcDate = response.data.response[0]['fixture']['date']
+        let localDate = new Date(utcDate)
+        let readableDate = localDate.toDateString()
+        console.log(readableDate)
         res.render('fixtures/show', {
         title: `Fixture Details`,
         fixture,
+        readableDate,
         results: response.data.response,
       })
     })

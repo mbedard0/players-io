@@ -7,8 +7,8 @@
     <h2><%= title %></h2>
     <% results.forEach(el => { %>
       <h3><%= el.teams.home.name %> - <%= el.teams.away.name %></h3>
-      <h4><%= el.fixture.date %> </h4>
-    <% }) %>
+      <% }) %>
+      <h4><%= readableDate %> </h4>
     <% results.forEach(el => { %>
     <form action="/fixtures/<%= el.fixture.id %>/message" method="POST">
     <label for="content"></label>

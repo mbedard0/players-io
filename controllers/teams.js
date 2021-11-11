@@ -1,4 +1,3 @@
-import { Team } from "../models/team.js";
 import axios from "axios";
 
 function index(req, res) {
@@ -32,6 +31,7 @@ function show(req, res) {
     })
     .then(response => {
       res.render('teams/show', {
+
         title: `Team Details`,
         results: response.data.response,
       })

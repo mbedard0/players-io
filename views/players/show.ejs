@@ -27,8 +27,13 @@
                 <%= player.player.lastname %></h2> 
               <p class="text-neutral">National team: <%= player.player.nationality %> <br>
                 <% player.statistics.forEach(stat=> { %>
-                  Team: <%= stat.team.name %><br>
-                  Appearances this season: <%= stat.games.appearences %></p> 
+                  League team: <%= stat.team.name %><br>
+                  Position: <%= stat.games.position %><br>Appearances this season: <%= stat.games.appearences %><br>
+                  <% if (stat.games.position !== "Goalkeeper") { %>
+                  Goals: <%= stat.goals.total %><br>Key Passes: <%= stat.passes.key %></p>
+                  <% } else { %> 
+                    Saves: <%= stat.goals.saves %> 
+                  <% }  %> 
               <div class="justify-center card-actions">
               </div>
             </div>
@@ -45,6 +50,8 @@
                     <input type="number" name="goals" hidden value="<%= stat.goals.total %>">
                     <input type="string" name="team" hidden value="<%= stat.team.name %>">
                     <input type="number" name="passes" hidden value="<%= stat.passes.total %>">
+                    <input type="number" name="keyPasses" hidden value="<%= stat.passes.key %>">
+                    <input type="number" name="saves" hidden value="<%= stat.goals.saves %>">
                     <input type="number" name="yellowCards" hidden value="<%= stat.cards.yellow %>">
                     <input type="number" name="redCards" hidden value="<%= stat.cards.red %>">
                     <% }); %>
