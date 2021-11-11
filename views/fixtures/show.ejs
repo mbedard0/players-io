@@ -7,26 +7,49 @@
     <h2><%= title %></h2>
     <% results.forEach(el => { %>
       <h3><%= el.teams.home.name %> - <%= el.teams.away.name %></h3>
-      <h4><%= el.fixture.date //.toLocaleDateString() %> </h4>
+      <h4><%= el.fixture.date %> </h4>
     <% }) %>
     <% results.forEach(el => { %>
     <form action="/fixtures/<%= el.fixture.id %>/message" method="POST">
     <label for="content"></label>
-    <input name="content" placeholder="Message">
+    <input class="text-black" name="content" placeholder="Comments">
     <input type="number" name="fixtureId" hidden value="<%= el.fixture.id %>">
     <input name="author" hidden value="<%= user.profile._id %>">
-    <button type="submit">Submit</button>
-    </form>
+    <button class="btn btn-sm btn-accent btn-active" type="submit">Submit</button>
+    </form><br><br>
     <% }) %>
     <% fixture.forEach(el => {  %>
-    <% if(el.boardPosts.length) { %> 
-      <% el.boardPosts.forEach(post => { %>
-          <%= post.content %>
-          <% }) %> 
-          <% } %> 
-          <% }) %>       
-    <% %> 
-  </main>
+    <% if(el.boardPosts.length) { %>
+      <div class="overflow-x-auto">
+        <table class="table w-full table-compact">
+          <thead>
+            <tr>
+              <th></th> 
+              <th>Comments</th> 
+              <th></th> 
+              <th></th> 
+              <th></th> 
+              <th></th>
+            </tr>
+          </thead> 
+          <tbody>
+              <% el.boardPosts.forEach(post => { %>
+              <tr>
+                <th></th> 
+                <td><%= post.content %></td>
+                <td></td> 
+                <td></td> 
+                <td></td> 
+                <td></td> 
+                <td></td>
+              </tr>
+              <% }) %> 
+              <% } %> 
+              <% }) %>       
+          </table>
+        </div>
+        
+          </main>
 </body>
 <%- include('../partials/footer.ejs') %>
 </html>
