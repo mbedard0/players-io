@@ -12,29 +12,41 @@ Game pages also serve as message boards, so leave your comments on player perfor
 
 <h3>This app is hosted on:</h3>
 <ul>
-<li><a href="https://github.com/mbedard0/players-io">GitHub Repo</a></li>
-<li><a href="">Heroku deployment</a></li>
-</ul>
-<h3>This app uses:</h3>
-<ul>
-<li><a href="https://www.api-football.com/">API Football</a></li>
-<li><a href="https://tailwindcss.com/">Tailwind CSS</a></li>
-<li><a href="https://daisyui.com/">Daisy UI</a></li>
-<li>MongoDB</li>
-<li>Node.js</li>
-<li>Express</li>
-<li>Mongoose</li>
-<li>Javascript</li>
-<li><a href="https://www.npmjs.com/package/dotenv">dotenv</a></li>
-<li><a href="http://expressjs.com/en/resources/middleware/method-override.html">method-override</a></li>
+  <li><a href="https://github.com/mbedard0/players-io">GitHub Repo</a></li>
+  <li><a href="https://players-io.herokuapp.com/">Heroku deployment</a></li>
+  </ul>
+  <h3>This app uses:</h3>
+  <ul>
+  <li>MongoDB</li>
+  <li>Node.js</li>
+  <li>Express</li>
+  <li>Mongoose</li>
+  <li>Javascript</li>
+  <li><a href="https://www.api-football.com/">API Football</a></li>
+  <li><a href="https://tailwindcss.com/">Tailwind CSS</a></li>
+  <li><a href="https://daisyui.com/">Daisy UI</a></li>
+  <li><a href="https://animate.style/">animate.css</a></li>
+  <li><a href="https://www.npmjs.com/package/dotenv">dotenv</a></li>
+  <li><a href="http://expressjs.com/en/resources/middleware/method-override.html">method-override</a></li>
 </ul>
 
 <h3>Planning Materials</h3>
 <ul>
-<li><a href="https://trello.com/b/epchWZlM/sei-unit-2-project">Trello</a></li>
-<li><a href="https://drive.google.com/file/d/15hRhxTA10-feHZK3SnYfZC7EwcnSckqL/view">ERD</a></li>
-<li><a href="https://docs.google.com/presentation/d/1Y61JlytYLFGqQij26-h-84J2vHbuzdXv3W4NgKwAIGg/edit?usp=sharing">Wireframes</a></li>
+  <li><a href="https://trello.com/b/epchWZlM/sei-unit-2-project">Trello</a></li>
+  <li><a href="https://drive.google.com/file/d/15hRhxTA10-feHZK3SnYfZC7EwcnSckqL/view">ERD</a></li>
+  <li><a href="https://docs.google.com/presentation/d/1Y61JlytYLFGqQij26-h-84J2vHbuzdXv3W4NgKwAIGg/edit?usp=sharing">Wireframes</a></li>
 </ul>
 
 
 <h2>Next Steps</h2>
+<ul>
+  <li>Display and link authors to their comments on message boards.</li>
+  <li>Show the teams of games commented on on users' profiles</li>
+  <li>Allow users to save teams and all their players to watch.</li>
+  <li>List dates on games index view.</li>
+  <li>Improve readability of dates.</li>
+  <li>Allow players to add/defriend users</li>
+  <li></li>
+  <li></li>
+
+</ul>

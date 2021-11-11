@@ -7,17 +7,21 @@
     <h2>Profile index</h2>
     <% profiles.forEach(profile => { %>
       <% if(profile.avatar) { %> 
-      <img class="card-img-top" src="<%= profile.avatar %>" alt="<%= profile.name %>">
-      <% } else {%>
-        <img
-          class="card-img-top"
-          src="/images/icons/user.png"
-          alt="A placeholder avatar"
-          width="50"
-          height="50"
-        />
-      <% } %>
-      <a class="link link-accent" href="/profiles/<%= profile._id %>"%></a><%= profile.name %><br><br>
+        <div class="avatar">
+          <div class="mb-8 w-24 h-24 mask mask-squircle">
+              <img class="card-img-top" src="<%= profile.avatar %>" alt="<%= profile.name %>">
+              <% } else {%>
+                <img
+                  class="card-img-top"
+                  src="/images/icons/user.png"
+                  alt="A placeholder avatar"
+                  width="50"
+                  height="50"
+                />
+            <% } %>
+          </div>
+        </div> 
+    <a class="link link-accent" href="/profiles/<%= profile._id %>"%></a><%= profile.name %><br><br>
     <% }) %> 
   </main>
 </body>
