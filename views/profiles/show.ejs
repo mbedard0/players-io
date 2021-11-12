@@ -30,7 +30,7 @@
               <th><img src="https://media.api-sports.io/football/players/<%= player.apiId %>.png" class="rounded-xl w-14 h-14">
               </th>
               <td><a class="link  link-hover" href="/players/<%= player.apiId %> "><%= player.firstName %> <%= player.lastName %></a></td>
-              <td><a class="link link-hover" href="/fixtures/<%= player.teamId %>"> <%= player.team %></a> </td>
+              <td><%= player.team %></td>
               <td class="text-right"><%= player.gamesPlayed %> </td>
               <td class="text-right"><%= player.goals %> </td> 
               <td class="text-right"><%= player.passes %> </td>
@@ -52,9 +52,9 @@
       <% profile.boardPosts.forEach(post => { %>
       <div class="flex flex-col w-full">
         <div class="grid h-20 card bg-base-300 rounded-box place-items-center">
-          <a class="link" href="fixtures/<%= post.fixtureId %> "><%= post.homeTeam %> vs. <%= post.awayTeam %></a>
+          <a class="link" href="/fixtures/<%= post.fixtureId %> "><%= post.homeTeam %> vs. <%= post.awayTeam %></a>
           Comment: <%= post.content %><br>
-          Posted at: <%= post.createdAt.toLocaleTimeString() %> <%= post.createdAt.toLocaleDateString() %>
+          Posted at:  <%= post.createdAt.toLocaleDateString() %> <%= post.createdAt.toLocaleTimeString() %>
         </div> 
       <div class="divider"></div> 
       <% }) %> 

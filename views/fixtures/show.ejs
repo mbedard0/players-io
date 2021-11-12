@@ -41,7 +41,7 @@
                 <td><%= post.content %></td>
                 <td></td> 
                 <td><a class="link" href="/profiles/<%= post.author._id %>"><%= post.author.name %></a></td> 
-                <td><%= post.createdAt.toLocaleTimeString() %> <%= post.createdAt.toLocaleDateString() %></td> 
+                <td><%= post.createdAt.toLocaleDateString() %> <%= post.createdAt.toLocaleTimeString() %></td> 
               </tr>
               <% }) %> 
               <% } %> 
