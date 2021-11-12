@@ -5,7 +5,7 @@ const teamSchema = new Schema({
   name: String,
   position: Number,
   crest: String,
-  leagueId: {type: Number, default: 39}, // the API id for the premier league
+  leagueId: {type: Number, default: 39},
   games: [{type: Schema.Types.ObjectId, ref: 'Game'}],
   playerList: [{type: Schema.Types.ObjectId, ref: 'Player'}]
 }, {

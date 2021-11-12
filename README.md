@@ -67,7 +67,5 @@ Individual player view
   <li>List dates on games index view.</li>
   <li>Improve readability of dates.</li>
   <li>Allow users to add/defriend other users</li>
-  <li></li>
-  <li></li>
-
+  <li>Add additional stats for players</li>
 </ul>

@@ -36,6 +36,7 @@ function show(req, res) {
       Fixture.find({fixtureId: req.params.id})
       .populate('boardPosts')
       .then(fixture => {
+        // fix date to be more readable
         let utcDate = response.data.response[0]['fixture']['date']
         let localDate = new Date(utcDate)
         let readableDate = localDate.toDateString()
@@ -53,8 +54,10 @@ function show(req, res) {
 }
 
 function createMessage(req, res) {
+  // find the fixture to create the message on
   Fixture.findOne({fixtureId: req.body.fixtureId})
     .then(fixture => {
+      // if the fixture exists in the database return, otherwise create a new one in 
       if (fixture) {
         return
       } else {
@@ -67,7 +70,7 @@ function createMessage(req, res) {
     Fixture.findOne({fixtureId: req.body.fixtureId})
     .then(fixture => {
       // find profile of user (user.profile._id)
-      fixture.boardPosts.push(post._id)
+      fixture['boardPosts'].push(post._id)
       fixture.save()
       Profile.findById(req.user.profile._id)
       .then(profile => {
