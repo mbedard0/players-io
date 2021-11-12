@@ -39,7 +39,6 @@ function show(req, res) {
         let utcDate = response.data.response[0]['fixture']['date']
         let localDate = new Date(utcDate)
         let readableDate = localDate.toDateString()
-        console.log(readableDate)
         res.render('fixtures/show', {
         title: `Fixture Details`,
         fixture,

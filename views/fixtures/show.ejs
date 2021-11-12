@@ -8,9 +8,9 @@
     <% results.forEach(el => { %>
       <h3><%= el.teams.home.name %> - <%= el.teams.away.name %></h3>
       <% }) %>
-      <h4><%= readableDate %> </h4>
+      <h4><%= readableDate %> </h4><br><br>
     <% results.forEach(el => { %>
-    <form action="/fixtures/<%= el.fixture.id %>/message" method="POST">
+    Leave a comment<form action="/fixtures/<%= el.fixture.id %>/message" method="POST">
     <label for="content"></label>
     <input class="text-black" name="content" placeholder="Comments">
     <input type="number" name="fixtureId" hidden value="<%= el.fixture.id %>">

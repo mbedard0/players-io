@@ -4,14 +4,19 @@
   <%- include('../partials/nav.ejs')  %> 
 <body>
   <main>
-    <h2><%= title %></h2>
-    <ul>
+    <h2 class="text-2xl"><%= title %></h2><br>
     <% results.forEach(team => { %>
       <% team.players.forEach(player => { %>
-        <li><a class="link link-accent" href="/players/<%= player.id %>"><%= player.name %></a></li>
+        <div class="card lg:card-side bordered">
+          <figure>
+            <img src="https://media.api-sports.io/football/players/<%= player.id %>.png">
+          </figure>
+          <div class="card-body">
+            <h2 class="card-title -mt-4"><a class="link link-accent" href="/players/<%= player.id %>"><%= player.name %></a></h2>
+          </div>
+        </div>
       <% }) %> 
     <% })%> 
-    </ul>
   </main>
 </body>
 <%- include('../partials/footer.ejs') %>

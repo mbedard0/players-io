@@ -8,6 +8,23 @@ Use the app to track the statistics of your favorite Premier League players, sea
 
 Game pages also serve as message boards, so leave your comments on player performances, reactions, and other thoughts there!
 
+<h2>Screenshots</h2><br>
+User profile
+
+![User profile](https://i.imgur.com/vxbHURR.png)
+
+All teams
+![All teams](https://i.imgur.com/mhGFPsn.png) 
+
+Players by team
+![Players by Team](https://i.imgur.com/OyX26Kg.png)
+
+Search results
+![Search results](https://i.imgur.com/8XN9r98.png)
+
+Individual player view
+![Player card](https://i.imgur.com/zQwmr2v.png)
+
 <h2>Tech Framework</h2>
 
 <h3>This app is hosted on:</h3>
@@ -22,6 +39,10 @@ Game pages also serve as message boards, so leave your comments on player perfor
   <li>Express</li>
   <li>Mongoose</li>
   <li>Javascript</li>
+  <li>Passport.js</li>
+  <li>Git</li>
+  <li>EJS</li>
+  <li>Google OAuth</li>
   <li><a href="https://www.api-football.com/">API Football</a></li>
   <li><a href="https://tailwindcss.com/">Tailwind CSS</a></li>
   <li><a href="https://daisyui.com/">Daisy UI</a></li>
@@ -45,7 +66,7 @@ Game pages also serve as message boards, so leave your comments on player perfor
   <li>Allow users to save teams and all their players to watch.</li>
   <li>List dates on games index view.</li>
   <li>Improve readability of dates.</li>
-  <li>Allow players to add/defriend users</li>
+  <li>Allow users to add/defriend other users</li>
   <li></li>
   <li></li>
 

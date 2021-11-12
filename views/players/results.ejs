@@ -5,8 +5,8 @@
 <body>
   <main>
     <h2><%= title %> results </h2>
-
-    <% results.response.forEach(player => { %>
+    <% if (results.response.length) { %>
+      <% results.response.forEach(player => { %>
     <div class="card lg:card-side bordered">
       <figure>
         <img src="https://media.api-sports.io/football/players/<%= player.player.id %>.png">
@@ -15,11 +15,16 @@
         <h2 class="card-title -mt-4"><%= player.player.firstname %>
           <%= player.player.lastname %></h2> 
           <div class="card-actions">
-          <button class="btn btn-xs md:btn-sm lg:btn-md xl:btn-lg"><a href="/players/<%= player.player.id %>">More info<a></button>
+            <button class="btn btn-xs md:btn-sm lg:btn-md xl:btn-lg">
+              <a href="/players/<%= player.player.id %>">More info<a>
+            </button>
         </div>
       </div>
     </div> 
     <% }) %>
+    <% } else { %> 
+    <p>No results found... try again!</p>
+    <% } %>
   </main>
 </body>
 <%- include('../partials/footer.ejs') %>

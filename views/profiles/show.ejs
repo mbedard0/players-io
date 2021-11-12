@@ -18,6 +18,7 @@
               <th>Goals</th>
               <th>Passes</th>
               <th>Key Passes</th>
+              <th>Saves</th>
               <th>Yellow Cards</th>
               <th>Red Cards</th>
             </tr>
@@ -25,12 +26,14 @@
           <% profile.playerList.forEach(player => { %>
             <tbody>
             <tr>
-              <th></th>
+              <th><img src="https://media.api-sports.io/football/players/<%= player.apiId %>.png" class="rounded-xl w-14 h-14">
+              </th>
               <td><a class="link" href="/players/<%= player.apiId %> "><%= player.firstName %> <%= player.lastName %></a></td>
               <td><%= player.team %> </td> 
               <td><%= player.goals %> </td> 
               <td><%= player.passes %> </td>
-              <td><%= player.keyPasses %> </td>
+              <td><%= player.keyPasses? player.keyPasses : 'N/A' %> </td>
+              <td><%= player.saves? player.saves : 'N/A' %> </td>
               <td><%= player.yellowCards %> </td>
               <td><%= player.redCards %> </td>
             </tr>
