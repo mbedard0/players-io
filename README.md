@@ -11,7 +11,7 @@ Game pages also serve as message boards, so leave your comments on player perfor
 <h2>Screenshots</h2><br>
 User profile
 
-![User profile](https://i.imgur.com/vxbHURR.png)
+![User profile](https://i.imgur.com/BWWYmjs.png)
 
 All teams
 ![All teams](https://i.imgur.com/mhGFPsn.png) 
@@ -24,6 +24,10 @@ Search results
 
 Individual player view
 ![Player card](https://i.imgur.com/zQwmr2v.png)
+
+Game and message board view
+![Player card](https://i.imgur.com/aeqXx0U.png)
+
 
 <h2>Tech Framework</h2>
 
@@ -42,6 +46,7 @@ Individual player view
   <li>Passport.js</li>
   <li>Git</li>
   <li>EJS</li>
+  <li>Axios</li>
   <li>Google OAuth</li>
   <li><a href="https://www.api-football.com/">API Football</a></li>
   <li><a href="https://tailwindcss.com/">Tailwind CSS</a></li>
@@ -61,8 +66,6 @@ Individual player view
 
 <h2>Next Steps</h2>
 <ul>
-  <li>Display and link authors to their comments on message boards.</li>
-  <li>Show the teams of games commented on on users' profiles</li>
   <li>Allow users to save teams and all their players to watch.</li>
   <li>List dates on games index view.</li>
   <li>Improve readability of dates.</li>

@@ -63,7 +63,8 @@ function createMessage(req, res) {
   // find the fixture to create the message on
   Fixture.findOne({fixtureId: req.body.fixtureId})
     .then(fixture => {
-      // if the fixture exists in the database return, otherwise create a new one in 
+      // if the fixture exists in the database return, otherwise create a new one
+      // saving the fixture here allows us to reference board posts within the fixture model
       if (fixture) {
         return
       } else {

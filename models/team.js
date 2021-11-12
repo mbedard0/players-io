@@ -1,6 +1,8 @@
 import mongoose from 'mongoose'
 const Schema = mongoose.Schema
 
+
+// this is currently in the icebox and not used
 const teamSchema = new Schema({
   name: String,
   position: Number,

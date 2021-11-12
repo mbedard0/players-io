@@ -39,6 +39,8 @@ function show(req, res) {
           res.render('players/show', {
             title: `Player details`,
             results: response.data.response,
+            // if player does not exist in the database, return false (because no one has added it before and therefore it can't be liked). this is needed because if player returns null and there is no check, the function won't run.
+            // else, check if the profile's player list includes the player id (will return true or false)
             userHasPlayer: (player === null)? false : profile.playerList.includes(player._id)
         })
       })
