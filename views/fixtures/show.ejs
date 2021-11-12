@@ -15,6 +15,9 @@
     <input class="text-black" name="content" placeholder="Comments">
     <input type="number" name="fixtureId" hidden value="<%= el.fixture.id %>">
     <input name="author" hidden value="<%= user.profile._id %>">
+    <input type="string" name="homeTeam" hidden value="<%= el.teams.home.name %>">
+    <input type="string" name="awayTeam" hidden value="<%= el.teams.away.name %>">
+    <input type="string" name="date" hidden value="<%= readableDate %>">
     <button class="btn btn-sm btn-accent btn-active" type="submit">Submit</button>
     </form><br><br>
     <% }) %>
@@ -27,9 +30,8 @@
               <th></th> 
               <th>Comments</th> 
               <th></th> 
-              <th></th> 
-              <th></th> 
-              <th></th>
+              <th>User</th>
+              <th>Posted at:</th>  
             </tr>
           </thead> 
           <tbody>
@@ -38,10 +40,8 @@
                 <th></th> 
                 <td><%= post.content %></td>
                 <td></td> 
-                <td></td> 
-                <td></td> 
-                <td></td> 
-                <td></td>
+                <td><a class="link" href="/profiles/<%= post.author._id %>"><%= post.author.name %></a></td> 
+                <td><%= post.createdAt.toLocaleTimeString() %> <%= post.createdAt.toLocaleDateString() %></td> 
               </tr>
               <% }) %> 
               <% } %> 

@@ -34,7 +34,13 @@ function show(req, res) {
     })
     .then(response => {
       Fixture.find({fixtureId: req.params.id})
-      .populate('boardPosts')
+      // deep populate authors on boardposts
+      .populate({
+        path : 'boardPosts',
+        populate : {
+          path : 'author'
+        }
+      })
       .then(fixture => {
         // fix date to be more readable
         let utcDate = response.data.response[0]['fixture']['date']
