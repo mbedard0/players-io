@@ -15,7 +15,7 @@ function index(req, res) {
     .then(response => {
       res.render('fixtures/index', {
         title: `2021-2022 Fixtures`,
-        results: response.data.response,
+        results: response.data.response
       })
     })
     .catch(e => {
